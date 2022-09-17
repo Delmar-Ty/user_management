@@ -1,0 +1,17 @@
+.btn {
+    align-self: center;
+    background-color: transparent;
+    border-style: solid;
+    border-color: $ghostWhite;
+    color: $ghostWhite;
+    padding: 1rem 2rem;
+    transition: all;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+.btn:hover {
+    color: black;
+    background-color: $ghostWhite;
+    border-radius: 25px;
+}

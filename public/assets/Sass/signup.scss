@@ -1,0 +1,51 @@
+@import '_body.scss';
+
+.container {
+    width: 80%;
+    height: 80%;
+    background-color: $russianViolet;
+    border-style: solid;
+    border-color: $purbleNavy;
+    border-width: 1px;
+    border-radius: 75px;
+    box-shadow: 10px 10px 25px 1px black;
+    overflow: hidden;
+    @include flexCenter();
+
+    .form {
+        width: 100%;
+        height: 100%;
+        @include flexCenter();
+        flex-direction: column;
+        justify-content: space-around;
+
+        .signup-title {
+            color: $ghostWhite;
+            font-size: 3rem;
+            text-shadow: 5px 5px 25px black;
+        }
+
+        .form-container {
+            width: 75%;
+            height: 60%;
+            @include flexCenter();
+            justify-content: space-around;
+
+            .col1, .col2 {
+                @import '_formInput.scss';
+                width: 45%;
+                height: 75%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-starts;
+
+                #special {
+                    color-scheme: dark;
+                }
+            }
+        }
+
+        @import 'submitButton.scss';
+    }
+}

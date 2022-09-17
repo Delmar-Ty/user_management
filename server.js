@@ -16,6 +16,15 @@ app.post('/login', (req, res) => {
     res.redirect('/');
 });
 
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
+app.post('/createAccount', (req, res) => {
+    console.log(req.body);
+    res.redirect('/');
+});
+
 app.listen(port, (err) => {
     if (err) throw err;
     console.log(`Listening on port ${port}`);

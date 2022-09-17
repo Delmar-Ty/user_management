@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="assets/CSS/signup.css">
+</head>
+<body>
+    
+    <div class="container">
+        <form action="/createAccount" class="form" method="post">
+            <h1 class="signup-title">Sign Up</h1>
+            <div class="form-container">
+                <div class="col1">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Comfirm Password" name="passwordConfirm">
+                </div>
+                <div class="col2">
+                    <input type="email" placeholder="Email" name="email">
+                    <input type="date" placeholder="Date of Birth" id="special" name="DOB">
+                    <input type="number" placeholder="Zip Code" name="zip">
+                </div>
+            </div>
+            <button class="btn" type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script src="assets/JavaScript/signup.js" type="module"></script>
+</body>
+</html>

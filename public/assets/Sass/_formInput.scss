@@ -1,0 +1,18 @@
+input {
+    border-style: none;
+    border-bottom-style: solid;
+    border-color: $ghostWhite;
+    background-color: transparent;
+    padding: 1rem;
+    color: $ghostWhite;
+    position: relative;
+}
+
+input::placeholder {
+    color: $ghostWhite;
+    opacity: 1;
+}
+
+input:focus {
+    outline: none;
+}

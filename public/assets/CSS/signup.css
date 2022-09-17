@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Secular One", sans-serif;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-45deg, #190933 -25%, #F0544F 125%);
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  background-color: #190933;
+  border-style: solid;
+  border-color: #665687;
+  border-width: 1px;
+  border-radius: 75px;
+  box-shadow: 10px 10px 25px 1px black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.container .form .signup-title {
+  color: #F8F8FF;
+  font-size: 3rem;
+  text-shadow: 5px 5px 25px black;
+}
+.container .form .form-container {
+  width: 75%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.container .form .form-container .col1, .container .form .form-container .col2 {
+  width: 45%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-starts;
+}
+.container .form .form-container .col1 input, .container .form .form-container .col2 input {
+  border-style: none;
+  border-bottom-style: solid;
+  border-color: #F8F8FF;
+  background-color: transparent;
+  padding: 1rem;
+  color: #F8F8FF;
+  position: relative;
+}
+.container .form .form-container .col1 input::-moz-placeholder, .container .form .form-container .col2 input::-moz-placeholder {
+  color: #F8F8FF;
+  opacity: 1;
+}
+.container .form .form-container .col1 input:-ms-input-placeholder, .container .form .form-container .col2 input:-ms-input-placeholder {
+  color: #F8F8FF;
+  opacity: 1;
+}
+.container .form .form-container .col1 input::placeholder, .container .form .form-container .col2 input::placeholder {
+  color: #F8F8FF;
+  opacity: 1;
+}
+.container .form .form-container .col1 input:focus, .container .form .form-container .col2 input:focus {
+  outline: none;
+}
+.container .form .form-container .col1 #special, .container .form .form-container .col2 #special {
+  color-scheme: dark;
+}
+.container .form .btn {
+  align-self: center;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #F8F8FF;
+  color: #F8F8FF;
+  padding: 1rem 2rem;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.container .form .btn:hover {
+  color: black;
+  background-color: #F8F8FF;
+  border-radius: 25px;
+}/*# sourceMappingURL=signup.css.map */
