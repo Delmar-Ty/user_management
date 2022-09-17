@@ -20,7 +20,10 @@ body {
   width: 60%;
   height: 80%;
   background-color: #190933;
-  border-radius: 100px;
+  border-style: solid;
+  border-color: #665687;
+  border-width: 1px;
+  border-radius: 75px;
   box-shadow: 10px 10px 25px 1px black;
   overflow: hidden;
   display: flex;
@@ -37,8 +40,8 @@ body {
 }
 .container .form .login-title {
   color: #F8F8FF;
-  text-decoration: underline;
   font-size: 3rem;
+  text-shadow: 5px 5px 25px black;
 }
 .container .form .form-container {
   height: 50%;
@@ -49,12 +52,12 @@ body {
 }
 .container .form .form-container input {
   border-style: none;
+  border-bottom-style: solid;
+  border-color: #F8F8FF;
   background-color: transparent;
   padding: 1rem;
   color: #F8F8FF;
-  transition: all;
-  transition-duration: 250ms;
-  transition-timing-function: ease-out;
+  position: relative;
 }
 .container .form .form-container input::-moz-placeholder {
   color: #F8F8FF;
@@ -73,4 +76,27 @@ body {
 }
 .container .form .btn {
   align-self: center;
-}/*# sourceMappingURL=style.css.map */
+  background-color: transparent;
+  border-style: solid;
+  border-color: #F8F8FF;
+  color: #F8F8FF;
+  padding: 1rem 2rem;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.container .form .btn:hover {
+  color: black;
+  background-color: #F8F8FF;
+  border-radius: 25px;
+}
+
+.sign-up {
+  position: absolute;
+  top: 95%;
+  color: #F8F8FF;
+}
+.sign-up .switch {
+  color: #F6F930;
+  text-decoration: none;
+}/*# sourceMappingURL=login.css.map */

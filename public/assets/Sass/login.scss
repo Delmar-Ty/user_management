@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$russianViolet: #190933;
+$ghostWhite: #F8F8FF;
+$blueMunsell: #2292A4;
+$purbleNavy: #665687;
+$maximumYellow: #F6F930;
+$tartOrange: #F0544F;
+$greenCrayola: #1CAC78;
+$vermillion: #CC474B;
+
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: 'Secular One', sans-serif;
+    position: relative;
+    height: 100vh;
+    @include flexCenter();
+    background-image: linear-gradient(-45deg, $russianViolet -25%, $tartOrange 125%);
+}
+
+.container {
+    max-width: 500px;
+    width: 60%;
+    height: 80%;
+    background-color: $russianViolet;
+    border-style: solid;
+    border-color: $purbleNavy;
+    border-width: 1px;
+    border-radius: 75px;
+    box-shadow: 10px 10px 25px 1px black;
+    overflow: hidden;
+    @include flexCenter();
+
+    .form {
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        .login-title {
+            color: $ghostWhite;
+            font-size: 3rem;
+            text-shadow: 5px 5px 25px black;
+        }
+
+        .form-container {
+            height: 50%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: flex-start;
+
+            input {
+                border-style: none;
+                border-bottom-style: solid;
+                border-color: $ghostWhite;
+                background-color: transparent;
+                padding: 1rem;
+                color: $ghostWhite;
+                position: relative;
+            }
+
+            input::placeholder {
+                color: $ghostWhite;
+                opacity: 1;
+            }
+
+            input:focus {
+                outline: none;
+            }
+        }
+
+        .btn {
+            align-self: center;
+            background-color: transparent;
+            border-style: solid;
+            border-color: $ghostWhite;
+            color: $ghostWhite;
+            padding: 1rem 2rem;
+            transition: all;
+            transition-duration: 250ms;
+            transition-timing-function: ease-in-out;
+        }
+
+        .btn:hover {
+            color: black;
+            background-color: $ghostWhite;
+            border-radius: 25px;
+        }
+    }
+}
+
+.sign-up {
+   position: absolute; 
+   top: 95%;
+   color: $ghostWhite;
+
+   .switch {
+        color: $maximumYellow;
+        text-decoration: none;
+   }
+}
