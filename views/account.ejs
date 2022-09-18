@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+
+    <link rel="stylesheet" href="assets/CSS/account.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="user">User's Account</h1>
+        <form action="" class="form" method="post">
+            <div class="box1">
+                <div class="col1">
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Comfirm Password" name="passwordConfirm">
+                </div>
+                <div class="col2">
+                    <input type="email" placeholder="Email" name="email">
+                    <input type="date" placeholder="Date of Birth" id="special" name="DOB">
+                    <input type="number" placeholder="Zip Code" name="zip">
+                </div>
+            </div>
+            <div class="box2">
+                <div class="btn-container">
+                    <button class="update btn" type="submit" formaction="/save">Save Changes</button>
+                    <button class="delete btn" type="submit" formaction="/delete">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="assets/JavaScript/account.js"></script>
+</body>
+</html>

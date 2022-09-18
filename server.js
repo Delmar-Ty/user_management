@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
     console.log(req.body);
-    res.redirect('/');
+    res.redirect('/account');
 });
 
 app.get('/signup', (req, res) => {
@@ -23,6 +23,22 @@ app.get('/signup', (req, res) => {
 app.post('/createAccount', (req, res) => {
     console.log(req.body);
     res.redirect('/');
+});
+
+app.get('/account', (req, res) => {
+    res.render('account');
+});
+
+app.post('/save', (req, res) => {
+    res.redirect('/account');
+});
+
+app.post('/delete', (req, res) => {
+    res.redirect('/');
+});
+
+app.get('/error', (req, res) => {
+    res.render('error', {content: "An Error Ocurred", code: 404});
 });
 
 app.listen(port, (err) => {

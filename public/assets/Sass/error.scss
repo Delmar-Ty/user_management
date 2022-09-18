@@ -1,0 +1,13 @@
+@import '_body.scss';
+body {
+    flex-direction: column;
+    color: $ghostWhite;
+}
+
+h1 {
+    font-size: 8rem;
+}
+
+p {
+    font-size: 5rem;
+}

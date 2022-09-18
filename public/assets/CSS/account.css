@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Secular One", sans-serif;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-45deg, #190933 -25%, #F0544F 125%);
+}
+
+.container {
+  width: 80%;
+  height: 75%;
+  background-color: #190933;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.container .user {
+  position: absolute;
+  color: #F8F8FF;
+  font-size: 3rem;
+  left: 2%;
+  top: 2%;
+  z-index: 1;
+}
+.container .form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+.container .form .box1, .container .form .box2 {
+  height: 100%;
+}
+.container .form .box1 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1;
+}
+.container .form .box1 .col1, .container .form .box1 .col2 {
+  width: 35%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-starts;
+}
+.container .form .box1 .col1 input, .container .form .box1 .col2 input {
+  border-style: none;
+  border-bottom-style: solid;
+  border-color: #F8F8FF;
+  background-color: transparent;
+  padding: 1rem;
+  color: #F8F8FF;
+  position: relative;
+}
+.container .form .box1 .col1 input::-moz-placeholder, .container .form .box1 .col2 input::-moz-placeholder {
+  color: #F8F8FF;
+  opacity: 1;
+}
+.container .form .box1 .col1 input:-ms-input-placeholder, .container .form .box1 .col2 input:-ms-input-placeholder {
+  color: #F8F8FF;
+  opacity: 1;
+}
+.container .form .box1 .col1 input::placeholder, .container .form .box1 .col2 input::placeholder {
+  color: #F8F8FF;
+  opacity: 1;
+}
+.container .form .box1 .col1 input:focus, .container .form .box1 .col2 input:focus {
+  outline: none;
+}
+.container .form .box1 .col1 #special, .container .form .box1 .col2 #special {
+  color-scheme: dark;
+}
+.container .form .box2 {
+  width: 60%;
+  background-color: #CC474B;
+  transform: skewX(-32.3deg);
+  position: absolute;
+  right: -25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+.container .form .box2 .btn-container {
+  width: 100%;
+  height: 50%;
+  transform: skewX(32.3deg);
+  position: absolute;
+  left: -25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.container .form .box2 .btn-container .btn {
+  align-self: center;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #F8F8FF;
+  color: #F8F8FF;
+  padding: 1rem 2rem;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.container .form .box2 .btn-container .btn:hover {
+  color: black;
+  background-color: #F8F8FF;
+  border-radius: 25px;
+}
+.container .form .box2 .btn-container .update:hover {
+  background-color: #03C03C;
+  border-color: #03C03C;
+  color: #F8F8FF;
+}
+.container .form .box2 .btn-container .delete:hover {
+  background-color: #F6F930;
+  border-color: #F6F930;
+}
+@media only screen and (max-width: 1300px) {
+  .container .form .box2 {
+    transform: skewX(0deg);
+    width: 50%;
+    right: 0%;
+  }
+  .container .form .box2 .btn-container {
+    transform: skewX(0deg);
+    left: 0%;
+  }
+}/*# sourceMappingURL=account.css.map */
