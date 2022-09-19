@@ -21,7 +21,6 @@ body {
   height: 80%;
   background-color: #190933;
   box-shadow: 10px 10px 25px 1px black;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,16 +69,8 @@ body {
 .container .form .form-container input:focus {
   outline: none;
 }
-.container .form .form-container #user {
-  position: relative;
-}
-.container .form .form-container #user::before {
-  content: "Hello World";
-  width: 100%;
-  position: absolute;
-  color: red;
-}
 .container .form .btn {
+  position: relative;
   align-self: center;
   background-color: transparent;
   border-style: solid;
@@ -91,9 +82,10 @@ body {
   transition-timing-function: ease-in-out;
 }
 .container .form .btn:hover {
-  color: black;
-  background-color: #F8F8FF;
+  color: #F8F8FF;
+  background-color: transparent;
   border-radius: 25px;
+  border-color: #665687;
 }
 
 .sign-up {

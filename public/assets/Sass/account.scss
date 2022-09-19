@@ -50,7 +50,7 @@
     
         .box2 {
             width: 60%;
-            background-color: $englishVermilion;
+            background-color: $purbleNavy;
             transform: skewX(-32.3deg);
             position: absolute;
             right: -25%;
@@ -70,14 +70,15 @@
                 @import '_submitButton.scss';
     
                 .update:hover {
-                    background-color: $darkPastelGreen;
-                    border-color: $darkPastelGreen;
+                    border-color: $goGreen;
+                    background-color: transparent;
                     color: $ghostWhite;
                 }
     
                 .delete:hover {
-                    background-color: $maximumYellow;
-                    border-color: $maximumYellow;
+                    background-color: transparent;
+                    border-color: $englishVermilion;
+                    color: white;
                 }
             }
     

@@ -1,4 +1,5 @@
 .btn {
+    position: relative;
     align-self: center;
     background-color: transparent;
     border-style: solid;
@@ -11,7 +12,8 @@
 }
 
 .btn:hover {
-    color: black;
-    background-color: $ghostWhite;
+    color: $ghostWhite;
+    background-color: transparent;
     border-radius: 25px;
+    border-color: $purbleNavy;
 }

@@ -10,7 +10,7 @@
     // border-width: 1px;
     // border-radius: 75px;
     box-shadow: 10px 10px 25px 1px black;
-    overflow: hidden;
+    // overflow: hidden;
     @include flexCenter();
 
     .form {
@@ -36,16 +36,7 @@
 
             @import '_formInput.scss';
 
-            #user {
-                position: relative;
-            }
-
-            #user::before {
-                content: 'Hello World';
-                width: 100%;
-                position: absolute;
-                color: red;
-            }
+            
         }
 
         @import '_submitButton.scss';

@@ -85,7 +85,7 @@ body {
 }
 .container .form .box2 {
   width: 60%;
-  background-color: #CC474B;
+  background-color: #665687;
   transform: skewX(-32.3deg);
   position: absolute;
   right: -25%;
@@ -107,6 +107,7 @@ body {
   justify-content: space-around;
 }
 .container .form .box2 .btn-container .btn {
+  position: relative;
   align-self: center;
   background-color: transparent;
   border-style: solid;
@@ -118,18 +119,20 @@ body {
   transition-timing-function: ease-in-out;
 }
 .container .form .box2 .btn-container .btn:hover {
-  color: black;
-  background-color: #F8F8FF;
+  color: #F8F8FF;
+  background-color: transparent;
   border-radius: 25px;
+  border-color: #665687;
 }
 .container .form .box2 .btn-container .update:hover {
-  background-color: #03C03C;
-  border-color: #03C03C;
+  border-color: #00AB66;
+  background-color: transparent;
   color: #F8F8FF;
 }
 .container .form .box2 .btn-container .delete:hover {
-  background-color: #F6F930;
-  border-color: #F6F930;
+  background-color: transparent;
+  border-color: #CC474B;
+  color: white;
 }
 @media only screen and (max-width: 1300px) {
   .container .form .box2 {
