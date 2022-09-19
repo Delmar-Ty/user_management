@@ -20,10 +20,6 @@ body {
   width: 60%;
   height: 80%;
   background-color: #190933;
-  border-style: solid;
-  border-color: #665687;
-  border-width: 1px;
-  border-radius: 75px;
   box-shadow: 10px 10px 25px 1px black;
   overflow: hidden;
   display: flex;
@@ -73,6 +69,15 @@ body {
 }
 .container .form .form-container input:focus {
   outline: none;
+}
+.container .form .form-container #user {
+  position: relative;
+}
+.container .form .form-container #user::before {
+  content: "Hello World";
+  width: 100%;
+  position: absolute;
+  color: red;
 }
 .container .form .btn {
   align-self: center;

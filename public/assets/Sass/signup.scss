@@ -1,13 +1,13 @@
 @import '_body.scss';
 
 .container {
-    width: 80%;
+    width: 40%;
     height: 80%;
     background-color: $russianViolet;
-    border-style: solid;
-    border-color: $purbleNavy;
-    border-width: 1px;
-    border-radius: 75px;
+    // border-style: solid;
+    // border-color: $purbleNavy;
+    // border-width: 1px;
+    // border-radius: 75px;
     box-shadow: 10px 10px 25px 1px black;
     overflow: hidden;
     @include flexCenter();
@@ -26,14 +26,14 @@
         }
 
         .form-container {
-            width: 75%;
+            width: 100%;
             height: 60%;
             @include flexCenter();
-            justify-content: space-around;
+            justify-content: space-evenly;
 
             .col1, .col2 {
                 @import '_formInput.scss';
-                width: 45%;
+                width: 30%;
                 height: 75%;
                 display: flex;
                 flex-direction: column;

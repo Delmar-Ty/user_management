@@ -5,10 +5,10 @@
     width: 60%;
     height: 80%;
     background-color: $russianViolet;
-    border-style: solid;
-    border-color: $purbleNavy;
-    border-width: 1px;
-    border-radius: 75px;
+    // border-style: solid;
+    // border-color: $purbleNavy;
+    // border-width: 1px;
+    // border-radius: 75px;
     box-shadow: 10px 10px 25px 1px black;
     overflow: hidden;
     @include flexCenter();
@@ -35,6 +35,17 @@
             align-items: flex-start;
 
             @import '_formInput.scss';
+
+            #user {
+                position: relative;
+            }
+
+            #user::before {
+                content: 'Hello World';
+                width: 100%;
+                position: absolute;
+                color: red;
+            }
         }
 
         @import '_submitButton.scss';
