@@ -124,6 +124,15 @@ body {
   border-radius: 25px;
   border-color: #665687;
 }
+.container .form .box2 .btn-container .btn::before {
+  content: var(--msg);
+  position: absolute;
+  width: 200%;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+}
 .container .form .box2 .btn-container .update:hover {
   border-color: #00AB66;
   background-color: transparent;

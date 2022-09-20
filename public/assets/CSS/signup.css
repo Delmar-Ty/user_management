@@ -103,8 +103,8 @@ body {
 .container .form .btn::before {
   content: var(--msg);
   position: absolute;
-  width: 100%;
-  top: -50%;
+  width: 200%;
+  top: -60%;
   left: 50%;
   transform: translateX(-50%);
   color: red;
