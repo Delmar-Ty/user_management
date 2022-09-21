@@ -47,15 +47,5 @@
         }
 
         @import 'submitButton.scss';
-
-        .btn::before {
-            content: var(--msg);
-            position: absolute;
-            width: 200%;
-            top: -60%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: red;
-        }
     }
 }

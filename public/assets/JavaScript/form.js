@@ -21,5 +21,7 @@ btn.addEventListener('click', () => {
         errCount++;
     } else if (errCount > 0) { 
         btn.setAttribute('style', '--msg: "Please Enter All Fields Correctly";'); 
+    } else if (errCount === 0) {
+        form.submit();
     }
 });

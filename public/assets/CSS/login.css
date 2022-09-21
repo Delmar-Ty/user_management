@@ -87,6 +87,15 @@ body {
   border-radius: 25px;
   border-color: #665687;
 }
+.container .form .btn::before {
+  content: var(--msg);
+  position: absolute;
+  width: 200%;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+}
 
 .sign-up {
   position: absolute;

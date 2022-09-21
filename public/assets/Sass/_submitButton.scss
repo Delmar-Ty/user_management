@@ -17,3 +17,13 @@
     border-radius: 25px;
     border-color: $purbleNavy;
 }
+
+.btn::before {
+    content: var(--msg);
+    position: absolute;
+    width: 200%;
+    top: -60%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+}
