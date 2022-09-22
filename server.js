@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const mongo = require('./mongo');
+const db = mongo.db;
 const port = 8080;
 
 app.set('view engine', 'ejs');
@@ -17,12 +19,18 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/signup', (req, res) => {
-    res.render('signup');
+    const exists = (req.query.exists === 'true')? 'User already exists': '';
+    res.render('signup', { checkUser: exists });
 });
 
 app.post('/createAccount', (req, res) => {
-    console.log(req.body);
-    res.redirect('/');
+    const exists = db.userExists({ username: req.body.username, email: req.body.email });
+    if (exists) {
+        res.redirect('/signup?exists=true');
+    } else {
+        db.createUser(req.body);
+        res.redirect('/');
+    }
 });
 
 app.get('/account', (req, res) => {

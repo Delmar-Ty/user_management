@@ -33,11 +33,19 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
 }
 .container .form .signup-title {
   color: #F8F8FF;
   font-size: 3rem;
   text-shadow: 5px 5px 25px black;
+}
+.container .form .checkUser {
+  color: red;
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .container .form .form-container {
   width: 100%;

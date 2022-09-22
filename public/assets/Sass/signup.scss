@@ -18,11 +18,20 @@
         @include flexCenter();
         flex-direction: column;
         justify-content: space-around;
+        position: relative;
 
         .signup-title {
             color: $ghostWhite;
             font-size: 3rem;
             text-shadow: 5px 5px 25px black;
+        }
+
+        .checkUser{
+            color: red;
+            position: absolute;
+            top: 18%;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .form-container {

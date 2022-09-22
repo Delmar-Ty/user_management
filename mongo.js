@@ -20,9 +20,7 @@ const db = {
             doc.save();
         } catch (error) {
             throw error;
-        }
-        
-        mongoose.disconnect();
+        }  
     },
     updateUser: function(data, userID) {
         mongoose.connect(URL, (err) => {
@@ -42,8 +40,6 @@ const db = {
         } catch (error) {
             throw error;
         }
-
-        mongoose.connection.close();
     },
     deleteUser: function(id) {
         mongoose.connect(URL, () => {
@@ -55,11 +51,10 @@ const db = {
         } catch (error) {
             throw error;
         }
-
-        mongoose.connection.close();
     },
-    getUser: function() {
-        
+    getUser: function(id) {
+        const doc = User.findById(id);
+        return doc;
     },
     getUserID: function(username) {
         mongoose.connect(URL, () => {
@@ -75,8 +70,13 @@ const db = {
         }
 
     }, 
-    userExists: function(id) {
-
+    userExists: function(data) {
+        const exists = User.exists({ $or : [{ username: data.username }, { email: data.email }] });
+        console.log(exists);
+        return exists;
+    },
+    closeDB: function() {
+        mongoose.connection.close();
     }
 }
 
