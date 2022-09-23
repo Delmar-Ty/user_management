@@ -1,3 +1,4 @@
+const { resolveInclude } = require('ejs');
 const mongoose = require('mongoose');
 const { User } = require('./schema');
 const URL = 'mongodb://localhost:27017/test';
@@ -53,27 +54,52 @@ const db = {
         }
     },
     getUser: function(id) {
-        const doc = User.findById(id);
-        return doc;
+        mongoose.connect(URL, (err) => {
+            
+            try {
+                
+            } catch (error) {
+                throw error;
+            }
+        });
     },
-    getUserID: function(username) {
-        mongoose.connect(URL, () => {
+    getUserID: function(userName) {
+        mongoose.connect(URL, (err) => {
             if (err) throw err
         });
 
         try {
-            const doc = User.find({ username: username });
-            mongoose.connection.close();
-            return doc._id;
+            const promise = new Promise((res, rej) => {
+                User.findOne({ username: userName }, (err, doc) => {
+                    if (err) throw err;
+                    mongoose.connection.close();
+                    res(doc._id);
+                });
+            });
+            return promise;
         } catch (error) {
             throw error;
         }
 
     }, 
     userExists: function(data) {
-        const exists = User.exists({ $or : [{ username: data.username }, { email: data.email }] });
-        console.log(exists);
-        return exists;
+        mongoose.connect(URL, (err) => {
+            if (err) throw err;
+        });
+
+        try {
+            const promise = new Promise((res, rej) => {
+                User.findOne({ $or: [{username: data.username}, {email: data.email}] }, (err, doc) => {
+                    if (err) throw err;
+                    const tf = (doc)? true: false;
+                    mongoose.connection.close();
+                    res(tf);
+                });
+            });
+            return promise;
+        } catch (error) {
+            throw error;
+        }
     },
     closeDB: function() {
         mongoose.connection.close();
