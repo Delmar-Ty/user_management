@@ -59,37 +59,41 @@ app.post('/createAccount', async (req, res) => {
 
 app.get('/account', async (req, res) => {
     const account = await db.getUser(req.query.id);
-    const code = req.query.code;
-    if (code === '1') {
-        res.render('account', {
-            username: account.username,
-            password: account.password,
-            email: account.email,
-            state: account.state,
-            zip: account.zip,
-            checkUser: 'Username already exists',
-            currentUser: req.query.id
-        });
-    } else if (code === '2') {
-        res.render('account', {
-            username: account.username,
-            password: account.password,
-            email: account.email,
-            state: account.state,
-            zip: account.zip,
-            checkUser: 'Email already exists',
-            currentUser: req.query.id
-        });
+    if (account === null) {
+        res.redirect('/error');
     } else {
-        res.render('account', {
-            username: account.username,
-            password: account.password,
-            email: account.email,
-            state: account.state,
-            zip: account.zip,
-            checkUser: '',
-            currentUser: req.query.id
-        });
+        const code = req.query.code;
+        if (code === '1') {
+            res.render('account', {
+                username: account.username,
+                password: account.password,
+                email: account.email,
+                state: account.state,
+                zip: account.zip,
+                checkUser: 'Username already exists',
+                currentUser: req.query.id
+            });
+        } else if (code === '2') {
+            res.render('account', {
+                username: account.username,
+                password: account.password,
+                email: account.email,
+                state: account.state,
+                zip: account.zip,
+                checkUser: 'Email already exists',
+                currentUser: req.query.id
+            });
+        } else {
+            res.render('account', {
+                username: account.username,
+                password: account.password,
+                email: account.email,
+                state: account.state,
+                zip: account.zip,
+                checkUser: '',
+                currentUser: req.query.id
+            });
+        }
     }
 });
 
@@ -107,6 +111,7 @@ app.post('/save', async (req, res) => {
 });
 
 app.post('/delete', (req, res) => {
+    db.deleteUser(req.query.id);
     res.redirect('/');
 });
 

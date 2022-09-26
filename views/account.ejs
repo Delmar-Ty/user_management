@@ -29,13 +29,14 @@
             <div class="box2">
                 <div class="btn-container">
                     <button class="update btn" type="button" formaction="/save?id=<%= currentUser %>">Save Changes</button>
-                    <button class="delete btn" type="button" formaction="/delete">Delete</button>
+                    <button class="delete btn" type="button" formaction="/delete?id=<%= currentUser %>">Delete</button>
+                    <button class="btn log-out" type="button">Log Out</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <script src="assets/JavaScript/account.js"></script>
     <script src="assets/JavaScript/form.js"></script>
+    <script src="assets/JavaScript/account.js"></script>
 </body>
 </html>

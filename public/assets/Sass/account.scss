@@ -75,14 +75,16 @@
     
                 .update:hover {
                     border-color: $goGreen;
-                    background-color: transparent;
                     color: $ghostWhite;
                 }
     
                 .delete:hover {
-                    background-color: transparent;
                     border-color: $englishVermilion;
-                    color: white;
+                    color: $ghostWhite;
+                }
+
+                .log-out:hover {
+                    border-color: $blueMunsell;
                 }
             }
     

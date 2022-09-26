@@ -5,9 +5,9 @@ const URL = 'mongodb://localhost:27017/test';
 
 const db = {
     createUser: function(data) {
-        mongoose.connect(URL, (err) => {
-            if (err) throw err;
-            try {
+        try {
+            mongoose.connect(URL, (err) => {
+                if (err) throw err;
                 const doc = new User({
                     username: data.username,
                     password: data.password,
@@ -20,16 +20,16 @@ const db = {
                     if (err) throw err;
                     db.disconnectDB();
                 });
-            } catch (error) {
-                throw error;
-            } 
-        }); 
+            });
+        } catch (error) {
+            throw error;
+        } 
     },
     updateUser: function(data, userID) {
-        const promise = new Promise((res, rej) => {
-            mongoose.connect(URL, (err) => {
-                if (err) throw err;
-                try {
+        try {
+            const promise = new Promise((res, rej) => {
+                mongoose.connect(URL, (err) => {
+                    if (err) throw err;
                     User.findByIdAndUpdate(userID, {
                         username: data.username,
                         password: data.password,
@@ -38,20 +38,23 @@ const db = {
                         zip: data.zip
                     }, (err) => {
                         if (err) throw err;
-                        mongoose.connection.close();
+                        db.disconnectDB();
                         res();
                     });
-                } catch (error) {
-                    throw error;
-                }
+                });
             });
-        });
-        return promise;
+            return promise;
+        } catch (error) {
+            throw error;
+        }
     },
     deleteUser: function(id) {
         try {
-            User.findByIdAndDelete(id, (err) => {
-                if (err) throw err;
+            mongoose.connect(URL, (err) => {
+                User.findByIdAndDelete(id, (err) => {
+                    if (err) throw err;
+                    db.disconnectDB();
+                });
             });
         } catch (error) {
             throw error;

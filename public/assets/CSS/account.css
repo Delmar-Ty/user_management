@@ -139,13 +139,14 @@ body {
 }
 .container .form .box2 .btn-container .update:hover {
   border-color: #00AB66;
-  background-color: transparent;
   color: #F8F8FF;
 }
 .container .form .box2 .btn-container .delete:hover {
-  background-color: transparent;
   border-color: #CC474B;
-  color: white;
+  color: #F8F8FF;
+}
+.container .form .box2 .btn-container .log-out:hover {
+  border-color: #2292A4;
 }
 @media only screen and (max-width: 1300px) {
   .container .form .box2 {
