@@ -87,9 +87,6 @@ body {
 .container .form .form-container .col1 input:focus, .container .form .form-container .col2 input:focus {
   outline: none;
 }
-.container .form .form-container .col1 #special, .container .form .form-container .col2 #special {
-  color-scheme: dark;
-}
 .container .form .btn {
   position: relative;
   align-self: center;

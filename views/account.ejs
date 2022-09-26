@@ -11,30 +11,31 @@
 <body>
     
     <div class="container">
-        <h1 class="user">User's Account</h1>
+        <h1 class="user"><%= username %>'s Account</h1>
+        <p class="checkUser"><%= checkUser %></p>
         <form action="" class="form" method="post">
             <div class="box1">
                 <div class="col1">
-                    <input type="text" placeholder="Username" name="username">
-                    <input type="password" placeholder="Password" name="password">
+                    <input type="text" placeholder="Username" name="username" value="<%= username %>">
+                    <input type="password" placeholder="Password" name="password" value="<%= password %>">
                     <input type="password" placeholder="Comfirm Password" name="passwordConfirm">
                 </div>
                 <div class="col2">
-                    <input type="email" placeholder="Email" name="email">
-                    <input type="date" placeholder="Date of Birth" id="special" name="DOB">
-                    <input type="number" placeholder="Zip Code" name="zip" id="zip">
+                    <input type="email" placeholder="Email" name="email" value="<%= email %>">
+                    <input type="text" placeholder="State" name="state" value="<%= state %>">
+                    <input type="number" placeholder="Zip Code" name="zip" id="zip" value="<%= zip %>">
                 </div>
             </div>
             <div class="box2">
                 <div class="btn-container">
-                    <button class="update btn" type="button" formaction="/save">Save Changes</button>
+                    <button class="update btn" type="button" formaction="/save?id=<%= currentUser %>">Save Changes</button>
                     <button class="delete btn" type="button" formaction="/delete">Delete</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <script src="assets/JavaScript/form.js"></script>
     <script src="assets/JavaScript/account.js"></script>
+    <script src="assets/JavaScript/form.js"></script>
 </body>
 </html>

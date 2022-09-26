@@ -13,6 +13,7 @@
     <div class="container">
         <form action="/login" method="post" class="form">
             <h1 class="login-title">Log In</h1>
+            <p class="checkUser"><%= checkUser %></p>
             <div class="form-container">
                 <input type="text" placeholder="Username" name="username" id="user" maxlength="16">
                 <input type="password" placeholder="Password" name="password">
@@ -20,7 +21,7 @@
             <button class="btn" type="button">Log In</button>
         </form>
     </div>
-    <p class="sign-up">Don't have an account? <a href="/signup?exists=false" class="switch">Sign Up</a></p>
+    <p class="sign-up">Don't have an account? <a href="/signup?code=0" class="switch">Sign Up</a></p>
 
     <script src="assets/JavaScript/login.js" type="module"></script>
 </body>

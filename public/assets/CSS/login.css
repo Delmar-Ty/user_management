@@ -31,12 +31,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
+  position: relative;
 }
 .container .form .login-title {
   color: #F8F8FF;
   font-size: 3rem;
   text-shadow: 5px 5px 25px black;
+}
+.container .form .checkUser {
+  width: 100%;
+  text-align: center;
+  color: red;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .container .form .form-container {
   height: 50%;

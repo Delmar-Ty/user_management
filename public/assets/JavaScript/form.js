@@ -22,6 +22,7 @@ btn.addEventListener('click', () => {
     } else if (errCount > 0) { 
         btn.setAttribute('style', '--msg: "Please Enter All Fields Correctly";'); 
     } else if (errCount === 0) {
+        form.setAttribute('action', btn.getAttribute('formaction'));
         form.submit();
     }
 });

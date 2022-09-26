@@ -7,73 +7,83 @@ const db = {
     createUser: function(data) {
         mongoose.connect(URL, (err) => {
             if (err) throw err;
-        });
-        
-        try {
-            const doc = new User({
-                username: data.username,
-                password: data.password,
-                email: data.email,
-                dob: data.DOB,
-                zip: data.zip
-            });
-            
-            doc.save();
-        } catch (error) {
-            throw error;
-        }  
+            try {
+                const doc = new User({
+                    username: data.username,
+                    password: data.password,
+                    email: data.email,
+                    state: data.state,
+                    zip: data.zip
+                });
+                
+                doc.save((err) => {
+                    if (err) throw err;
+                    db.disconnectDB();
+                });
+            } catch (error) {
+                throw error;
+            } 
+        }); 
     },
     updateUser: function(data, userID) {
-        mongoose.connect(URL, (err) => {
-            if (err) throw err;
-        });
-
-        try {
-            const currentUser = User.findById({ id: userID });
-            currentUser.set({
-                username: data.username,
-                password: data.password,
-                email: data.email,
-                dob: data.DOB,
-                zip: data.zip
+        const promise = new Promise((res, rej) => {
+            mongoose.connect(URL, (err) => {
+                if (err) throw err;
+                try {
+                    User.findByIdAndUpdate(userID, {
+                        username: data.username,
+                        password: data.password,
+                        email: data.email,
+                        state: data.state,
+                        zip: data.zip
+                    }, (err) => {
+                        if (err) throw err;
+                        mongoose.connection.close();
+                        res();
+                    });
+                } catch (error) {
+                    throw error;
+                }
             });
-            currentUser.save();
-        } catch (error) {
-            throw error;
-        }
+        });
+        return promise;
     },
     deleteUser: function(id) {
-        mongoose.connect(URL, () => {
-            if (err) throw err
-        });
-
         try {
-            User.findByIdAndDelete(id);
+            User.findByIdAndDelete(id, (err) => {
+                if (err) throw err;
+            });
         } catch (error) {
             throw error;
         }
     },
     getUser: function(id) {
-        mongoose.connect(URL, (err) => {
-            
-            try {
-                
-            } catch (error) {
-                throw error;
-            }
-        });
-    },
-    getUserID: function(userName) {
-        mongoose.connect(URL, (err) => {
-            if (err) throw err
-        });
-
         try {
             const promise = new Promise((res, rej) => {
-                User.findOne({ username: userName }, (err, doc) => {
+                mongoose.connect(URL, (err) => {
                     if (err) throw err;
-                    mongoose.connection.close();
-                    res(doc._id);
+                    User.findById(id, (err, doc) => {
+                        if (err) throw err;
+                        db.disconnectDB();
+                        res(doc);
+                    });
+                });
+            });
+            return promise;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getUserID: function(userName) {
+        try {
+            const promise = new Promise((res, rej) => {
+                mongoose.connect(URL, (err) => {
+                    if (err) throw err;
+                    User.findOne({ username: userName }, (err, doc) => {
+                        if (err) throw err;
+                        db.disconnectDB();
+                        res(doc._id.toString());
+                    });
                 });
             });
             return promise;
@@ -82,18 +92,22 @@ const db = {
         }
 
     }, 
-    userExists: function(data) {
-        mongoose.connect(URL, (err) => {
-            if (err) throw err;
-        });
-
+    userExists: function(data, options = { exclude: false, id: '' }) {
         try {
+            const query = (!options.exclude)? { $or: [{username: data.username}, {email: data.email}] }: { $and: [{ $or: [{username: data.username}, {email: data.email}] }, {_id: { $nin: [options.id] }}] };
             const promise = new Promise((res, rej) => {
-                User.findOne({ $or: [{username: data.username}, {email: data.email}] }, (err, doc) => {
-                    if (err) throw err;
-                    const tf = (doc)? true: false;
-                    mongoose.connection.close();
-                    res(tf);
+                mongoose.connect(URL, (err) => {
+                    User.findOne(query, (err, doc) => {
+                        if (err) throw err;
+                        if (doc) {
+                            const user = (doc.username === data.username)? true: false;
+                            const email = (doc.email === data.email)? true: false;
+                            res({ username: user, email: email });
+                        } else {
+                            res({ username: false, email: false });
+                        }
+                        db.disconnectDB();
+                    });
                 });
             });
             return promise;
@@ -101,7 +115,7 @@ const db = {
             throw error;
         }
     },
-    closeDB: function() {
+    disconnectDB: function() {
         mongoose.connection.close();
     }
 }

@@ -22,6 +22,7 @@ body {
   display: flex;
   position: relative;
   overflow: hidden;
+  box-shadow: 10px 10px 25px 1px black;
 }
 .container .user {
   position: absolute;
@@ -30,6 +31,12 @@ body {
   left: 2%;
   top: 2%;
   z-index: 1;
+}
+.container .checkUser {
+  color: red;
+  position: absolute;
+  top: 15%;
+  left: 2%;
 }
 .container .form {
   width: 100%;
@@ -79,9 +86,6 @@ body {
 }
 .container .form .box1 .col1 input:focus, .container .form .box1 .col2 input:focus {
   outline: none;
-}
-.container .form .box1 .col1 #special, .container .form .box1 .col2 #special {
-  color-scheme: dark;
 }
 .container .form .box2 {
   width: 60%;
