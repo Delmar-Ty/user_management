@@ -1,7 +1,7 @@
 const { resolveInclude } = require('ejs');
 const mongoose = require('mongoose');
 const { User } = require('./schema');
-const URL = 'mongodb://localhost:27017/test';
+const URL = 'mongodb://localhost:27017/UsersDB';
 
 const db = {
     createUser: function(data) {
