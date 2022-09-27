@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Secular One", sans-serif;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-45deg, #190933 -25%, #F0544F 125%);
+}
+
+.container {
+  width: 50%;
+  height: 90%;
+}
+.container .form {
+  width: 100%;
+  height: 100%;
+}
+.container .form .search {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .form .search .search-container {
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+.container .form .search .search-container .bi-search {
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 2rem;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.container .form .search .search-container input {
+  width: 100%;
+  height: 100%;
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  padding-left: 4rem;
+  font-size: 2rem;
+  border-radius: 10px;
+}
+.container .form .search .search-container input:focus {
+  outline: none;
+}
+.container .form .search .search-container input::-moz-placeholder {
+  color: black;
+  opacity: 0.5;
+}
+.container .form .search .search-container input:-ms-input-placeholder {
+  color: black;
+  opacity: 0.5;
+}
+.container .form .search .search-container input::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+.container .form .search .search-container input[type=search]::-webkit-search-decoration,
+.container .form .search .search-container input[type=search]::-webkit-search-cancel-button,
+.container .form .search .search-container input[type=search]::-webkit-search-results-button,
+.container .form .search .search-container input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+.container .form .search .btn {
+  position: relative;
+  align-self: center;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #F8F8FF;
+  color: #F8F8FF;
+  padding: 1rem 2rem;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.container .form .search .btn:hover {
+  color: #F8F8FF;
+  background-color: transparent;
+  border-radius: 25px;
+  border-color: #665687;
+}
+.container .form .search .btn::before {
+  content: var(--msg);
+  position: absolute;
+  width: 200%;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+}
+.container .form .below-search {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}/*# sourceMappingURL=admin.css.map */

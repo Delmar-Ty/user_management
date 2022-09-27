@@ -1,0 +1,69 @@
+@import '_body.scss';
+
+.container {
+    width: 50%;
+    height: 90%;
+
+    .form {
+        width: 100%;
+        height: 100%;
+
+        .search {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .search-container {
+                width: 100%;
+                height: 50%;
+                position: relative;
+
+                .bi-search {
+                    position: absolute;
+                    aspect-ratio: 1 / 1;
+                    width: 2rem;
+                    top: 50%;
+                    left: 1rem;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                }
+        
+                input {
+                    width: 100%;
+                    height: 100%;
+                    border-style: none;
+                    background-color: rgba(255, 255, 255, .15);  
+                    backdrop-filter: blur(5px);
+                    padding-left: 4rem;
+                    font-size: 2rem;
+                    border-radius: 10px;
+                }
+        
+                input:focus {
+                    outline: none;
+                }
+        
+                input::placeholder {
+                    color: black;
+                    opacity: 0.5;
+                }
+        
+                input[type="search"]::-webkit-search-decoration,
+                input[type="search"]::-webkit-search-cancel-button,
+                input[type="search"]::-webkit-search-results-button,
+                input[type="search"]::-webkit-search-results-decoration { display: none; }
+            }
+
+            @import '_submitButton.scss';
+        }
+
+        .below-search {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}
