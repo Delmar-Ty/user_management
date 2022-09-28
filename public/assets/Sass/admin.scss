@@ -61,9 +61,31 @@
         }
 
         .below-search {
+            width: 100%;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
+
+            .filter {
+                padding: 1rem;
+                background-color: transparent;
+                border-style: solid;
+                border-width: 2px;
+                border-color: $ghostWhite;
+                color: $ghostWhite;
+                transition: all;
+                transition-duration: 250ms;
+                transition-timing-function: ease-in-out;
+
+                option {
+                    color: black;
+                }
+            }
+
+            .filter:focus {
+                border-color: $purbleNavy;
+                border-radius: 25px;
+            }
         }
     }
 }

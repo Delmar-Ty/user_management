@@ -105,7 +105,26 @@ body {
   color: red;
 }
 .container .form .below-search {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+}
+.container .form .below-search .filter {
+  padding: 1rem;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #F8F8FF;
+  color: #F8F8FF;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.container .form .below-search .filter option {
+  color: black;
+}
+.container .form .below-search .filter:focus {
+  border-color: #665687;
+  border-radius: 25px;
 }/*# sourceMappingURL=admin.css.map */
