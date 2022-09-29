@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongo = require('./mongo');
 const { User } = require('./schema');
 const mongoose = require('mongoose');
+const { render } = require('ejs');
 const db = mongo.db;
 const port = 8080;
 
@@ -60,7 +61,7 @@ app.post('/createAccount', async (req, res) => {
 app.get('/account', async (req, res) => {
     const account = await db.getUser(req.query.id);
     if (account === null) {
-        res.redirect('/error');
+        res.redirect('/error', {content: 'Not Found', code: 404});
     } else {
         const code = req.query.code;
         if (code === '1') {
@@ -116,7 +117,25 @@ app.post('/delete', (req, res) => {
 });
 
 app.get('/error', (req, res) => {
-    res.render('error', {content: "An Error Ocurred", code: 404});
+    res.render('error', {content: req.query.content, code: req.query.code});
+});
+
+app.get('/admin', (req, res) => {
+    res.render('admin', {
+        id: '',
+        username: '',
+        email: '',
+        password: '',
+        state: '',
+        zip: ''
+    });
+});
+
+app.get('/search', async (req, res) => {
+    const userInfo = await db.searchUser(req.query.search, req.query.filter);
+    if (userInfo === null) {
+        res.redirect('/error?code=404&content=User Not Found');
+    }
 });
 
 app.listen(port, (err) => {

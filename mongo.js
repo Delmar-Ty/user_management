@@ -118,6 +118,24 @@ const db = {
             throw error;
         }
     },
+    searchUser: function(search, filter) {
+        try {
+            const promise = new Promise((res, rej) => {
+                mongoose.connect(URL, (err) => {
+                    if (err) throw err;
+                    const query = (filter === 'username')? { username: search }: { email: search };
+                    User.findOne(query, (err, doc) => {
+                        if (err) throw err;
+                        res(doc);
+                        db.disconnectDB();
+                    });
+                });
+            });
+            return promise;
+        } catch (error) {
+            throw error;
+        }
+    },
     disconnectDB: function() {
         mongoose.connection.close();
     }
