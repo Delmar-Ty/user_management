@@ -21,17 +21,21 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const exists = await db.userExists({ username: req.body.username });
-    if (exists.username) {
-        const userID = await db.getUserID(req.body.username);
-        const user = await db.getUser(userID);
-        if (user.password !== req.body.password) {
-            res.redirect('/?code=1');
-        } else {
-            res.redirect(`/account?id=${userID}&code=0`);
-        }
+    if (req.body.username === 'admin' && req.body.password === 'password') {
+        res.redirect('/admin');
     } else {
-        res.redirect('/?code=1');
+        const exists = await db.userExists({ username: req.body.username });
+        if (exists.username) {
+            const userID = await db.getUserID(req.body.username);
+            const user = await db.getUser(userID);
+            if (user.password !== req.body.password) {
+                res.redirect('/?code=1');
+            } else {
+                res.redirect(`/account?id=${userID}&code=0`);
+            }
+        } else {
+            res.redirect('/?code=1');
+        }
     }
 });
 
@@ -134,7 +138,23 @@ app.get('/admin', (req, res) => {
 app.get('/search', async (req, res) => {
     const userInfo = await db.searchUser(req.query.search, req.query.filter);
     if (userInfo === null) {
-        res.redirect('/error?code=404&content=User Not Found');
+        res.render('admin', {
+            id: 'Error User Not Found',
+            username: 'Error User Not Found',
+            email: 'Error User Not Found',
+            password: 'Error User Not Found',
+            state: 'Error User Not Found',
+            zip: 'Error User Not Found'
+        });
+    } else {
+        res.render('admin', {
+            id: userInfo._id,
+            username: userInfo.username,
+            email: userInfo.email,
+            password: userInfo.password,
+            state: userInfo.state,
+            zip: userInfo.zip
+        });
     }
 });
 

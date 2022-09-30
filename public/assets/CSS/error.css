@@ -26,4 +26,34 @@ h1 {
 
 p {
   font-size: 5rem;
+}
+
+.btn {
+  position: relative;
+  align-self: center;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #F8F8FF;
+  color: #F8F8FF;
+  padding: 1rem 2rem;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+
+.btn:hover {
+  color: #F8F8FF;
+  background-color: transparent;
+  border-radius: 25px;
+  border-color: #665687;
+}
+
+.btn::before {
+  content: var(--msg);
+  position: absolute;
+  width: 200%;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
 }/*# sourceMappingURL=error.css.map */
